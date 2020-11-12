@@ -1,4 +1,6 @@
-# Getting Started with Create React App
+# SmartRanking Front
+
+Projeto criado em React para consumir a API do NestJS
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
