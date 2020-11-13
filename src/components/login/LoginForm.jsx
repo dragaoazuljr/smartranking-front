@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import { FormControl } from 'react-bootstrap'
 
-export default class LoginForm extends Component<{handle: Function}, {}> {
+export default class LoginForm extends Component {
     render() {
         return (
             <div style={formStyle}>
@@ -24,5 +24,6 @@ const labelStyle = {
 
 export const formStyle = {
     display: 'flex',
-    flexDirection: 'column'
-} as React.CSSProperties
+    flexDirection: 'column',
+    width: '100%'
+}

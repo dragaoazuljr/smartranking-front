@@ -24,16 +24,16 @@ function ErrorMessage() {
     )
 }
 
-export default class LoginCard extends Component<any, {[x: string]: any}> {
+export default class LoginCard extends Component {
     loginService = new LoginSerivce();
     
-    constructor(props: any){
+    constructor(props){
         super(props);
         this.state = {login: '', password: ''};
         this.handleChange = this.handleChange.bind(this);
     }
 
-    handleChange(event: any, field: string){
+    handleChange(event, field){
         this.setState({...this.state, [field]: event.target.value})
     }
 
@@ -46,12 +46,12 @@ export default class LoginCard extends Component<any, {[x: string]: any}> {
             )
     }
 
-    validadeError(err: any){
+    validadeError(err){
         console.log(err);
         this.setState({...this.state, error: true, pending: false});
     }
 
-    redirect(resp: any): any {
+    redirect(resp) {
         let token = resp.data.accessToken.jwtToken;
         localStorage.setItem('accessToken', token);
         this.props.history.push('/home')
@@ -107,7 +107,8 @@ export const card =  {
     flexDirection: 'column',
     justifyContent: 'center',
     alignItems: 'center',
-} as React.CSSProperties
+    width: '400px'
+}
 
 const buttonStyle = {
     margin: '5px'
