@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import { Alert, Button, Spinner } from 'react-bootstrap'
 import { NavLink } from 'react-router-dom'
 import logo from '../../assets/bola-de-tenis.png'
+import { ButtonCustom } from '../../lib/ButtonCustom'
 import LoginForm from './LoginForm'
 import { LoginSerivce } from './LoginService'
 
@@ -38,7 +39,7 @@ export default class LoginCard extends Component {
     }
 
     async sendLogin(){
-        this.setState({...this.state, error: undefined, pending: true})
+        this.setState({...this.state, error: undefined, pending: 1})
         this.loginService.login(this.state.login, this.state.password)
             .then(
                 (token) => this.redirect(token),
@@ -48,11 +49,11 @@ export default class LoginCard extends Component {
 
     validadeError(err){
         console.log(err);
-        this.setState({...this.state, error: true, pending: false});
+        this.setState({...this.state, error: true, pending: 0});
     }
 
     redirect(resp) {
-        let token = resp.data.accessToken.jwtToken;
+        let token = resp.data.idToken.jwtToken;
         localStorage.setItem('accessToken', token);
         this.props.history.push('/home')
     }
@@ -67,12 +68,9 @@ export default class LoginCard extends Component {
                     <ErrorMessage />
                 ) : false}
                 <div style={buttonDivStyle}>
-                    <Button style={buttonStyle} onClick={() => this.sendLogin()}>
-                        Login 
-                        {this.state.pending ? (<Spinner as="a" style={SpinerStyle} size="sm" animation="border" />) : false}
-                    </Button>
+                    <ButtonCustom style={buttonStyle} onClick={() => this.sendLogin()} pending={this.state.pending}>Login</ButtonCustom>
                     <NavLink to="/signup">
-                        <Button style={buttonStyle}>Cadastro</Button>
+                        <ButtonCustom style={buttonStyle}>Cadastro</ButtonCustom>
                     </NavLink>
                 </div>
             </div>

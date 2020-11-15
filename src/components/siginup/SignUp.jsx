@@ -6,7 +6,7 @@ export default class SignUp extends Component {
     render() {
         return (
             <div style={backgroundStyle}>
-                <SignUpCard />
+                <SignUpCard {...this.props} />
             </div>
         )
     }

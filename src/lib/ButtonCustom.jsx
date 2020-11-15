@@ -8,7 +8,7 @@ import fadeOutLeft from "react-animations/lib/fade-out-left";
 let LoadingSpinner = (props) => (
     <StyleRoot style={{display: 'inline'}}>
         <div style={[loadingSpinnerStyle.base, props.pending ? loadingSpinnerStyle.fadeIn : false]}>
-            <Spinner as="a" style={SpinerStyle} size="sm" animation="border" />
+            <Spinner style={SpinerStyle} size="sm" animation="border" />
         </div>
     </StyleRoot>
 )

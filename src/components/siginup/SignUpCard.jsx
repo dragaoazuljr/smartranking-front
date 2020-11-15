@@ -53,7 +53,7 @@ export default class SignUpCard extends Component {
     }
 
     cancel(){
-        console.log('cancel');
+        this.props.history.goBack();
     }
 
     render() {
